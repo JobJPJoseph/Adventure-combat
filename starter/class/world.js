@@ -25,7 +25,7 @@ class World {
   }
 
   static getEnemiesInRoom(room) {
-    return World.enemies.filter(enemy => enemy.currentRoom === room);
+    return World.enemies.filter(enemy => enemy.currentRoom === room.currentRoom); // room is a player instance that has a currentToom of room
   }
 
   static loadWorld(worldData) {

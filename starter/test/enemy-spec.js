@@ -17,7 +17,7 @@ describe ('Character', function () {
   let item;
 
   beforeEach(function() {
-    room =  new Room("Test Room", "A test room");
+    room = new Room("Test Room", "A test room");
     item = new Item("rock", "just a simple rock");
     character = new Character('Character', 'an ordinary character', room);
     character.items.push(item);
@@ -45,6 +45,16 @@ describe ('Character', function () {
   });
 
   it('should drop all held items and have currentRoom set to null when dead', function () {
+    // console.log(room)
+    // console.log(character.currentRoom);
+    // console.log(room === character.currentRoom);
+
+    // character.die();
+
+    // console.log(room)
+    // console.log(character.currentRoom);
+    // console.log(room === character.currentRoom);
+
     expect(character.currentRoom).to.equal(room);
     expect(room.items.length).to.equal(0);
     character.die();
@@ -204,5 +214,3 @@ describe ('Enemy', function () {
   });
 
 });
-
-
