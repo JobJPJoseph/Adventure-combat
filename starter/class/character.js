@@ -21,14 +21,22 @@ class Character extends Room {
 
   die() {
     // Fill this in
-    // The is a pointer problem
-      // the room instance and currentRoom are the same.
-      // If you make a change to currentRoom, room will be affected
-      // as well.
 
-    // console.log(this.items) // We are pushing this into currentRoom
+    while(this.items.length > 0) {
+      /*
+      We need to continuously remove from this.items and put those elements
+      into the current room that the character is in.
 
-    this.currentRoom.items.push(this.items[0]);
+      We are going to reference this.items.splice(0,1) index 0: delete 1: insert none
+      and save bc we need the value
+      We that value, we are going to push it into this.currentRoom.items.push(...value);
+      */
+
+      const value = this.items.splice(0, 1);
+      this.currentRoom.items.push(...value);
+    }
+
+    // this.currentRoom.items.push(this.items[0]);
     this.currentRoom = null;
     return true;
   }
