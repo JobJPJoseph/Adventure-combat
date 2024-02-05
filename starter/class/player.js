@@ -1,5 +1,5 @@
 const {Character} = require('./character');
-const {Enemy} = require('./enemy');
+// const {Enemy} = require('./enemy');
 const {Food} = require('./food');
 
 class Player extends Character {
@@ -75,27 +75,14 @@ class Player extends Character {
 
   hit(name) {
     // Fill this in
-    // enemy is an instance of character and room
-
-    // person may be used to reference something in world.js
-
-    // Notice that in this case its player not enemy
-    // player is an instance of character and room
-      // can you find anything that allows us to search an instance by name?
-        // yes we can, 'getEnemyByName()' in the room class.
-
-
-    // I think i am suppose to search for something by name but what is the variable?
-      // all this is correct
-
-    // 'getEnemyByName()' will return an enemy instance.
-    // we will reference enemy.attackTarget and set it to 'this' which is 'player'
-
     const instEnemy =  this.getEnemyByName(name);
-    instEnemy.attackTarget = this;
+    this.applyDamage.call(instEnemy, this.strength); // attacking goblin
+    instEnemy.attackTarget = this; // Goblin is now agro
 
     return true;
   }
+
+
 
   die() {
     console.log("You are dead!");

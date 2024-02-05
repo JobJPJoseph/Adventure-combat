@@ -43,7 +43,6 @@ class Enemy extends Character {
 
   rest() {
     // Wait until cooldown expires, then act
-    // We can use functions in classes. We have to use the arrow functions
     const resetCooldown = () => {
       this.cooldown = 0;
       // this.act(); // maybe here
@@ -51,20 +50,16 @@ class Enemy extends Character {
     setTimeout(resetCooldown, this.cooldown);
   }
 
-  attack() {
+  attack() { // wrong implemetation
     // Fill this in
-    /* Looking back at World.js and the spec, 'World.setPlayer(player);'. Every instance
-    of enemy's 'this.player' is set. So we can reference 'this.player'
 
-    We can reference health and strength from 'this.player'
-    */
-    this.act();
-    // console.log(this.player);
     this.applyDamage(this.strength);
+    this.act();
+
     return true;
   }
 
-  applyDamage(amount) {
+  applyDamage(amount) { // Wrong implementation
     // Fill this in
     this.player.health -= amount;
     return true;
@@ -77,6 +72,8 @@ class Enemy extends Character {
 
       // we may need to call this.die() since its dead
         // Note:Enemy is an instance of Character
+
+      this.die();
     } else if (this.cooldown > 0) {
       this.rest();
     } else {

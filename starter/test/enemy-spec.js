@@ -103,7 +103,7 @@ describe ('Enemy', function () {
   });
 
 
-  it('should be able to move to a new room', function () { // This is an infinite loop
+  it('should be able to move to a new room', function () {
 
     let westRoom = new Room("West Room", "A room to the west of testRoom");
     room.connectRooms('w', westRoom);
@@ -120,7 +120,6 @@ describe ('Enemy', function () {
 
 
   it('should target the player when hit', function () {
-
     expect(enemy.attackTarget).to.equal(null);
 
     player.hit('enemy');
@@ -128,6 +127,7 @@ describe ('Enemy', function () {
     expect(enemy.attackTarget).to.equal(player);
   });
 
+  // There is no test to ensure that the goblin was attacked by the player
 
   it('should attack the player when targetting player', function () {
 
