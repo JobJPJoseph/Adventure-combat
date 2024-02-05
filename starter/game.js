@@ -1,6 +1,7 @@
 const readline = require('readline');
 
 const { Player } = require('./class/player');
+const { Enemy } = require('./class/enemy');
 const { World } = require('./class/world');
 
 const worldData = require('./data/world-data');
@@ -21,6 +22,7 @@ function printHelp() {
   console.log("  Type 'take <item>' to take an item");
   console.log("  Type 'drop <item>' to drop an item");
   console.log("  Type 'eat <item>' to eat a food item");
+  console.log("  Type 'hit <enemy>' to hit the enemy");
   console.log("  Type 'n', 's', 'e', 'w' to move");
   console.log("");
 }

@@ -127,10 +127,9 @@ describe ('Enemy', function () {
     expect(enemy.attackTarget).to.equal(player);
   });
 
-  // There is no test to ensure that the goblin was attacked by the player
-
   it('enemy should have recieved damage from the player from being hit', function () {
-    // const instEnemy = room.getEnemyByName('enemy');
+    expect(enemy.health).to.equal(100);
+
     player.hit('enemy')
 
     expect(enemy.health).to.equal(90);
