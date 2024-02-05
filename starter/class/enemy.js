@@ -15,35 +15,17 @@ class Enemy extends Character {
   }
 
 
-  randomMove() { // this is mostly wrong. look at room.js
+  randomMove() {
     // Fill this in
-    // you will need to reference currentRoom to get room.exits['w']
-    // this.currentRoom = this.currentRoom.exits['w'];
-    this.act();
-    // return true;
 
-    // enemy is an instance of Character and Room
-    // We could grab the keys from this.exits since its a hash
-    // From there we can generate a random number using the length of the keys
-      // thus returning a number to get a character from Object.keys(this.exits);
-    // We now use this character to to call getRoomInDirection(direction)
+    // this.act();
 
-    // console.log(this.currentRoom);
-
-    // const exitArr = Object.keys(this.currentRoom.exits);
     const exitArr = this.currentRoom.getExits();
-    // console.log(`exitArr: ${exitArr}`);
     const ranNum = Math.floor(Math.random() * exitArr.length);
-    // console.log(`ranNum: ${ranNum}`);
     const char = exitArr[ranNum];
-    // console.log(`character: ${char}`);
     this.currentRoom = this.currentRoom.getRoomInDirection(char);
 
-    // console.log(this.currentRoom);
-
-    // We are wrong.
-      // this.exits has nested instances
-    // console.log(this.currentRoom.exits); // The correct reference
+    this.act();
 
     return true;
   }
@@ -64,7 +46,7 @@ class Enemy extends Character {
     // We can use functions in classes. We have to use the arrow functions
     const resetCooldown = () => {
       this.cooldown = 0;
-      this.act();
+      // this.act(); // maybe here
     };
     setTimeout(resetCooldown, this.cooldown);
   }
@@ -92,6 +74,9 @@ class Enemy extends Character {
   act() {
     if (this.health <= 0) {
       // Dead, do nothing;
+
+      // we may need to call this.die() since its dead
+        // Note:Enemy is an instance of Character
     } else if (this.cooldown > 0) {
       this.rest();
     } else {

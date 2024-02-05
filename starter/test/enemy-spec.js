@@ -103,7 +103,7 @@ describe ('Enemy', function () {
   });
 
 
-  it('should be able to move to a new room', function () {
+  it('should be able to move to a new room', function () { // This is an infinite loop
 
     let westRoom = new Room("West Room", "A room to the west of testRoom");
     room.connectRooms('w', westRoom);
