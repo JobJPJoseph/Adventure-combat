@@ -1,7 +1,7 @@
 const readline = require('readline');
 
 const { Player } = require('./class/player');
-const { Enemy } = require('./class/enemy');
+// const { Enemy } = require('./class/enemy');
 const { World } = require('./class/world');
 
 const worldData = require('./data/world-data');
@@ -50,7 +50,9 @@ function startGame() {
 
       processCommand();
     });
+
   });
+
 }
 
 

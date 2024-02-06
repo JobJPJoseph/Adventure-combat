@@ -24,7 +24,49 @@ class World {
     }
   }
 
-  static getEnemiesInRoom(room) {
+  static getEnemiesInRoom(room) { // check this again!
+    const { n: north , e: east , w: west, s: south } = room.exits;
+    const directions = [north, east, west, south];
+    const filteredEnemies = [];
+
+    // console.log(World.enemies[0]);
+    // console.log('===========================')
+    // console.log(east);
+    // console.log('===========================')
+
+    // console.log(`World Enemies: ${World.enemies[0].name}`);
+    // console.log('===========================')
+    // console.log(room.exits.e);
+    // console.log('===========================')
+    // console.log(room);
+    // console.log('===========================')
+    /*
+    We are trying to iterate through World.enemies and referencing that enemy's currentRoom
+    We are testing and collecting if enemy's currentRoom ...
+      Note: There is no such thing as room.currentRoom!!!
+
+    We are going to use the goblin currentRoom as a reference in room.exits
+    */
+    // console.log(directions);
+    // console.log('should all be different')
+    for (let i = 0; i < World.enemies.length; i++) {
+      const enemy = World.enemies[i];
+      // console.log(enemy);
+
+      for(let j = 0; j < directions.length; j++) {
+        const direction = directions[j];
+        // console.log('===========================')
+        // console.log(direction);
+
+        if (enemy.currentRoom === direction) filteredEnemies.push(enemy);
+      }
+
+    }
+
+
+    // console.log(World.enemies[0].currentRoom === east)
+    // console.log(filteredEnemies);
+    return filteredEnemies;
     return World.enemies.filter(enemy => enemy.currentRoom === room.currentRoom); // room is a player instance that has a currentToom of room
   }
 
@@ -84,7 +126,11 @@ class World {
       World.enemies.push(newEnemy);
     }
 
+    // We will back to this later
+    // console.log(World.rooms);
+    // console.log(World.enemies);
   }
+
 }
 
 module.exports = {
