@@ -88,6 +88,7 @@ describe ('Enemy', function () {
 
     enemy.items.push(item);
     room.items.push(sandwich);
+
   });
 
 
@@ -121,6 +122,8 @@ describe ('Enemy', function () {
 
   it('should target the player when hit', function () {
     expect(enemy.attackTarget).to.equal(null);
+
+    // console.log(World.enemies)
 
     player.hit('enemy');
 

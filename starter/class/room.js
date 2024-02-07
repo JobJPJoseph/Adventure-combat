@@ -7,21 +7,20 @@ class Room {
     this.items = [];
   }
 
-  getEnemies() { // Make sure enemies are present
+  getEnemies() {
     const { World } = require('./world');
-    // console.log(World); // remove
-    // console.log(World.getEnemiesInRoom(this));
+
     return World.getEnemiesInRoom(this);
   }
 
-  printRoom() { // This has an issue
+  printRoom() {
     console.clear();
     console.log("");
     console.log(this.name);
     console.log("");
     console.log(this.description);
     console.log("");
-    // console.log(this.getEnemies().length) // remove
+
     if (this.getEnemies().length > 0) {
       console.log(`Enemies: ${this.getEnemies().map(enemy => enemy.name).join(", ")}`);
     }
