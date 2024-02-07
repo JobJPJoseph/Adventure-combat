@@ -69,25 +69,8 @@ class Room {
 
     // Fill this in
 
-    // Comming from the enemy class
-    // I think we are suppose to reference 'getEnemies()', but what will that return?
-      // check the world.js file.
-      // We found it. Based on the test specs, an enemy instance was push into 'World.enemies.push(enemy);'
-
-    /*We are going to reference getEnemies() which will call and create a Wolrd instance, World.getEnemiesInRoom(this)
-      'this' being the current room instance
-      What World.getEnemiesInRoom(this) will do is iterate and filter the array of enemy instances that have a currentRoom
-      value of 'room'
-      if true, will return an array of instance of enemies that have the currentRoom value of 'room'
-      thus getEnemies should return an array.
-
-      We will then iterate thru the array of instance and seach by name.
-      If that particuler instance 'name' is === to name than explictly return that instance.
-      otherwise return null.
-
-    */
-
-    const enemies = this.getEnemies();
+    // const enemies = this.getEnemies();
+    const enemies = this.getEnemies.call(this.currentRoom); // We added context
 
     for (let i = 0; i < enemies.length; i++) {
       const enemy = enemies[i];

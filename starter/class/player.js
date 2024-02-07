@@ -76,10 +76,10 @@ class Player extends Character {
   hit(name) { // fix this
     // Fill this in
 
-    // const instEnemy = this.getEnemyByName(name);
+    const instEnemy = this.getEnemyByName(name);
 
-    // if(instEnemy) this.applyDamage.call(instEnemy, this.strength); // attacking goblin
-    // instEnemy.attackTarget = this; // Goblin is now agro
+    if(instEnemy) this.applyDamage.call(instEnemy, this.strength); // attacking goblin
+    instEnemy.attackTarget = this; // Goblin is now agro
 
     return true;
   }
