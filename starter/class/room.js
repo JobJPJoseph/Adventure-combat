@@ -21,9 +21,14 @@ class Room {
     console.log(this.description);
     console.log("");
 
+    // if (this.getEnemies().length > 0) {
+    //   console.log(`Enemies: ${this.getEnemies().map(enemy => enemy.name).join(", ")}`);
+    // }
+
     if (this.getEnemies().length > 0) {
-      console.log(`Enemies: ${this.getEnemies().map(enemy => enemy.name).join(", ")}`);
+      console.log(`Enemies: ${this.getEnemies().map(enemy => [enemy.name, enemy.health].join(" ")).join(", ")}`)
     }
+
     if (this.items.length > 0) {
       console.log(`Items: ${this.items.map(item => item.name).join(", ")}`);
     }

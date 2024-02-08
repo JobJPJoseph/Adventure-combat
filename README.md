@@ -55,4 +55,5 @@ Type `npm install` to install the test packages, then `mocha` to run tests.
 
 1. You notice how items is printed out, we need to do that for goblin
    1. Now it not in the correct room
-2. Always display the player's health
+2. Always display the Enemy's health
+3. Always display the player's health
