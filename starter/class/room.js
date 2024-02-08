@@ -14,6 +14,8 @@ class Room {
   }
 
   printRoom() {
+    const { World } = require('./world');
+
     console.clear();
     console.log("");
     console.log(this.name);
@@ -24,6 +26,8 @@ class Room {
     // if (this.getEnemies().length > 0) {
     //   console.log(`Enemies: ${this.getEnemies().map(enemy => enemy.name).join(", ")}`);
     // }
+
+    console.log(`Player: ${World.enemies[0].player.health}`); // Temporary
 
     if (this.getEnemies().length > 0) {
       console.log(`Enemies: ${this.getEnemies().map(enemy => [enemy.name, enemy.health].join(" ")).join(", ")}`)

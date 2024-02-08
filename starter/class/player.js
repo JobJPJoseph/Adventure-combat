@@ -81,6 +81,10 @@ class Player extends Character {
     if(instEnemy) this.applyDamage.call(instEnemy, this.strength); // attacking goblin
     instEnemy.attackTarget = this; // Goblin is now agro
 
+    /*
+    Once the enemy is agro, it needs to hit the player back
+    */
+
     return true;
   }
 
