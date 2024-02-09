@@ -88,9 +88,7 @@ class Player extends Character {
 
   }
 
-
-
-  die() {
+  die() { // needs to be called
     console.log("You are dead!");
     process.exit();
   }

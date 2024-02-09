@@ -52,15 +52,14 @@ class Enemy extends Character {
 
   attack() {
     // Fill this in
-    this.act();
-    this.applyDamage(this.strength);
-
+    if (this.act()) this.applyDamage(this.strength);
     return true;
   }
 
   applyDamage(amount) {
     // Fill this in
     this.player.health -= amount;
+    if (this.player.health <= 0) this.player.die();
     return true;
   }
 
@@ -69,10 +68,8 @@ class Enemy extends Character {
     if (this.health <= 0) {
       // Dead, do nothing;
 
-      // we may need to call this.die() since its dead
-        // Note:Enemy is an instance of Character
-
       this.die();
+      return false;
     } else if (this.cooldown > 0) {
       this.rest();
     } else {
@@ -81,6 +78,7 @@ class Enemy extends Character {
     }
 
     // Fill this in
+    return true;
   }
 
 
