@@ -98,7 +98,12 @@ function processCommand() {
 
       const instEnemy = player.hit(enemyName);
       // We need to call enemy.attack()
-      instEnemy.attack();
+      if (instEnemy) {
+        instEnemy.attack();
+      } else {
+        console.log("Invalid command. Type 'h' for help.");
+      }
+
     } else {
       console.log("Invalid command. Type 'h' for help.");
     }

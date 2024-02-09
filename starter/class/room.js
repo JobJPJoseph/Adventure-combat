@@ -87,7 +87,7 @@ class Room {
       if (enemy.name === name) return enemy;
     }
 
-    return null;
+    return enemies;
   }
 }
 

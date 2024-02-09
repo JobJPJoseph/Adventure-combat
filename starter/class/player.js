@@ -75,23 +75,17 @@ class Player extends Character {
 
   hit(name) { // fix this
     // Fill this in
-
     const instEnemy = this.getEnemyByName(name);
 
-    if(instEnemy) this.applyDamage.call(instEnemy, this.strength); // attacking goblin
-    instEnemy.attackTarget = this; // Goblin is now agro
+    if(Object.keys(instEnemy).length > 0) {
+      this.applyDamage.call(instEnemy, this.strength); // attacking goblin
+      instEnemy.attackTarget = this; // Goblin is now agro
 
-    /*
-    Once the enemy is agro, it needs to hit the player back
-    */
-    // console.log(instEnemy.attackTarget);
+      return instEnemy;
+    } else {
+      return false;
+    }
 
-    // instEnemy.attack(); // This is correct
-    /*
-    In the context of the test spec, Enemy.attack needs to be separatly called if possible.
-    We need to return instEnemy bc game.js does not load in the Enemy file
-    */
-    return instEnemy;
   }
 
 

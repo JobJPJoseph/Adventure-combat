@@ -58,3 +58,6 @@ Type `npm install` to install the test packages, then `mocha` to run tests.
 2. Always display the Enemy's health
 3. Always display the player's health
 4. We need to make the that after the Enemy is agro, the Enemy must attack back
+5. Should fix the goblin respone to being defeated. Should not immedialty attack player once his health hit 0.
+6. If no goblin is found, it should not throw an Error. Just ask again.
+7. Once the player health hits 0, end game.

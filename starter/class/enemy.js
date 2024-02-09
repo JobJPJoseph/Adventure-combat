@@ -50,15 +50,15 @@ class Enemy extends Character {
     setTimeout(resetCooldown, this.cooldown);
   }
 
-  attack() { // wrong implemetation
+  attack() {
     // Fill this in
-    this.applyDamage(this.strength);
     this.act();
+    this.applyDamage(this.strength);
 
     return true;
   }
 
-  applyDamage(amount) { // Wrong implementation
+  applyDamage(amount) {
     // Fill this in
     this.player.health -= amount;
     return true;
