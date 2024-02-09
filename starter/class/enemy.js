@@ -52,7 +52,6 @@ class Enemy extends Character {
 
   attack() { // wrong implemetation
     // Fill this in
-
     this.applyDamage(this.strength);
     this.act();
 

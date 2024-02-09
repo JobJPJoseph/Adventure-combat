@@ -96,8 +96,9 @@ function processCommand() {
     } else if (cmd.startsWith("hit ")) {
       let enemyName = cmd.split(" ")[1];
 
-      player.hit(enemyName);
-
+      const instEnemy = player.hit(enemyName);
+      // We need to call enemy.attack()
+      instEnemy.attack();
     } else {
       console.log("Invalid command. Type 'h' for help.");
     }

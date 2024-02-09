@@ -84,8 +84,14 @@ class Player extends Character {
     /*
     Once the enemy is agro, it needs to hit the player back
     */
+    // console.log(instEnemy.attackTarget);
 
-    return true;
+    // instEnemy.attack(); // This is correct
+    /*
+    In the context of the test spec, Enemy.attack needs to be separatly called if possible.
+    We need to return instEnemy bc game.js does not load in the Enemy file
+    */
+    return instEnemy;
   }
 
 

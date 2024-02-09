@@ -57,3 +57,4 @@ Type `npm install` to install the test packages, then `mocha` to run tests.
    1. Now it not in the correct room
 2. Always display the Enemy's health
 3. Always display the player's health
+4. We need to make the that after the Enemy is agro, the Enemy must attack back
