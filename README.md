@@ -61,3 +61,10 @@ Type `npm install` to install the test packages, then `mocha` to run tests.
 5. Should fix the goblin respone to being defeated. Should not immedialty attack player once his health hit 0.
 6. If no goblin is found, it should not throw an Error. Just ask again.
 7. Once the player health hits 0, end game.
+
+8. We need to make two more classes and have to be child classes
+   1. Item: Weapon, Armor, Currency
+   2. Character: Boss, Shopkeeper
+
+9. Add more functionality to the food class.
+   1. When a food is eaten it should increase the player's health.

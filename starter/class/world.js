@@ -67,12 +67,17 @@ class World {
       let itemData = itemList[i];
       let newItem;
 
+      // test if said item is a food or not
       if (itemData.isFood) {
         newItem = new Food(itemData.name, itemData.description);
       } else {
         newItem = new Item(itemData.name, itemData.description);
       }
 
+      // The items come with there designed room
+      // It uses the returned value as an index for the World.rooms array that contain instances
+      // The rooms instance all have a property @items array
+      // pushes the new items into the specific room's items
       let itemRoom = World.rooms[itemData.room];
       itemRoom.items.push(newItem);
    }

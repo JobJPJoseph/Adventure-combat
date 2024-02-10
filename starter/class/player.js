@@ -33,31 +33,48 @@ class Player extends Character {
     }
   }
 
-  takeItem(itemName) {
+  takeItem(itemName) { // fix this
     // Fill this in
 
     const instItem = this.currentRoom.getItemByName(itemName);
-    const index = this.currentRoom.items.indexOf(instItem);
-    const item = this.currentRoom.items.splice(index, 1);
-    this.items.push(...item);
+
+    if (instItem) {
+      const index = this.currentRoom.items.indexOf(instItem);
+      const item = this.currentRoom.items.splice(index, 1);
+      this.items.push(...item);
+    } else {
+      return false;
+    }
+
     return true;
   }
 
-  dropItem(itemName) {
+  dropItem(itemName) { // fix this
     // Fill this in
     const instItem = this.getItemByName(itemName);
-    const index = this.items.indexOf(instItem);
-    const item = this.items.splice(index, 1);
-    this.currentRoom.items.push(...item);
+
+    if(instItem) {
+      const index = this.items.indexOf(instItem);
+      const item = this.items.splice(index, 1);
+      this.currentRoom.items.push(...item);
+    } else {
+      return false;
+    }
+
     return true;
   }
 
-  eatItem(itemName) {
+  eatItem(itemName) { // fix this
     // Fill this in
     const instItem = this.getItemByName(itemName);
     if (!(instItem instanceof Food)) return false;
     const index = this.items.indexOf(instItem);
     const item = this.items.splice(index, 1);
+    /*
+    We did nothing with the item
+    All we did was delete it
+    No boost in health nor strength, keep that in mind
+    */
     return true;
   }
 
@@ -73,7 +90,7 @@ class Player extends Character {
     return super.getItemByName(name);
   }
 
-  hit(name) { // fix this
+  hit(name) {
     // Fill this in
     const instEnemy = this.getEnemyByName(name);
 
