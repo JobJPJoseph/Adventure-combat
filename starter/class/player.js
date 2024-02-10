@@ -75,6 +75,13 @@ class Player extends Character {
     All we did was delete it
     No boost in health nor strength, keep that in mind
     */
+    this.calculateHealthBoost(...item);
+    return true;
+  }
+
+  calculateHealthBoost(food) {
+    const healthBoost = this.health * food.healthBoostPercentage;
+    this.health += healthBoost
     return true;
   }
 

@@ -134,8 +134,17 @@ describe ('Food', function () {
     expect(player.items.length).to.equal(1);
   });
 
+  it('should increase the player health food is eaten', function () {
+    const room = new Room("Test Room", "A test room");
+    const player = new Player("player", room);
+    const sandwich = new Food("sandwich", "a delicious looking sandwich");
 
+    player.items.push(sandwich);
+    expect(player.health).to.equal(100);
+    player.eatItem('sandwich');
+    expect(player.health).to.equal(140);
+
+  });
 
 
 });
-
