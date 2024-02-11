@@ -4,7 +4,12 @@ class Weapon extends Item {
 
     constructor(name, description) {
         super(name, description);
-        this.damageBoostPercentage = 0.15;
+        this.additiveDmg = 25;
+        this.isEquiped = [false, true];
+    }
+
+    equip() {
+        return this.isEquiped[0];
     }
 
 }

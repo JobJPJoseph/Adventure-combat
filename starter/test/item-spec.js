@@ -174,12 +174,30 @@ describe('Weapon', function () {
       expect(weapon).to.not.be.instanceOf(Food);
     });
 
-    it('should initialize the name, description, and damageBoostPercentage', function () {
+    it('should initialize the name, description, additiveDmg, and equip', function () {
       expect(weapon.name).to.equal('excalibastard');
       expect(weapon.description).to.equal('For ypur death dealing needs');
-      expect(weapon.damageBoostPercentage).to.equal(0.15);
+      expect(weapon.additiveDmg).to.equal(25);
+      expect(weapon.isEquiped).to.deep.equal([false, true]);
     });
 
   });
+
+  describe('Equip', function () {
+
+    it('should return the first index of isEquiped', function () {
+      expect(weapon.equip()).to.equal(false);
+    });
+
+  });
+
+  describe('equipmentWeapon', function () {
+
+  });
+
+  // describe('calculateStrengthBoost', function () {
+  //   expect(player.strength).to.equal(10);
+  //   expect(player.)
+  // });
 
 });
