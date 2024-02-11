@@ -42,6 +42,11 @@ module.exports = {
       description: "A tasty looking sandwich",
       room: 2,
       isFood: true
+    },
+    {
+      name: "excalibastard",
+      description: "For your death dealing needs",
+      room: 4,
     }
   ],
   enemies: [

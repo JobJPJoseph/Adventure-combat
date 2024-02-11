@@ -135,15 +135,19 @@ describe ('Food', function () {
     expect(player.items.length).to.equal(1);
   });
 
-  it('should increase the player health food is eaten', function () {
-    const room = new Room("Test Room", "A test room");
-    const player = new Player("player", room);
-    const sandwich = new Food("sandwich", "a delicious looking sandwich");
+  describe('calculateHealthBoost', function () {
 
-    player.items.push(sandwich);
-    expect(player.health).to.equal(100);
-    player.eatItem('sandwich');
-    expect(player.health).to.equal(140);
+    it('should increase the player health food is eaten', function () {
+      const room = new Room("Test Room", "A test room");
+      const player = new Player("player", room);
+      const sandwich = new Food("sandwich", "a delicious looking sandwich");
+
+      player.items.push(sandwich);
+      expect(player.health).to.equal(100);
+      player.eatItem('sandwich');
+      expect(player.health).to.equal(140);
+
+    });
 
   });
 
@@ -158,7 +162,7 @@ describe('Weapon', function () {
   beforeEach(function () {
     room = new Room('Test Room', "A test room");
     player = new Player('player', room);
-    weapon = new Weapon('excalibastard', 'For ypur death dealing needs');
+    weapon = new Weapon('excalibastard', 'For your death dealing needs');
 
   });
 
@@ -197,6 +201,23 @@ describe('Weapon', function () {
       expect(weapon.equip()).to.equal(false);
       weapon.equipWeapon();
       expect(weapon.equip()).to.equal(true);
+    });
+
+  });
+
+  describe('calculateStrength', function () {
+
+    it('should increase the player strength when weapon is equiped', function () {
+      expect(player.strength).to.equal(10);
+      player.calculateStrength();
+      expect(player.strength).to.equal(35);
+
+    });
+
+    it('should return the strength to it original state when the weapon is not equiped', function () {
+      expect(player.strength).to.equal(35);
+      player.calculateStrength();
+      expect(player.strength).to.equal(10);
     });
 
   });
