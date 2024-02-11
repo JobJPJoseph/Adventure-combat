@@ -191,7 +191,13 @@ describe('Weapon', function () {
 
   });
 
-  describe('equipmentWeapon', function () {
+  describe('EquipWeapon', function () {
+
+    it('should rotate the isEquip property', function () {
+      expect(weapon.equip()).to.equal(false);
+      weapon.equipWeapon();
+      expect(weapon.equip()).to.equal(true);
+    });
 
   });
 

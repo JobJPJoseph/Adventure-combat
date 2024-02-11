@@ -12,6 +12,10 @@ class Weapon extends Item {
         return this.isEquiped[0];
     }
 
+    equipWeapon() {
+        [this.isEquiped[0], this.isEquiped[1]] = [this.isEquiped[1], this.isEquiped[0]];
+    }
+
 }
 
 module.exports = {
