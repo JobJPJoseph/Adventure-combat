@@ -4,6 +4,7 @@ const {Player} = require("../class/player.js");
 const {Room} = require("../class/room.js");
 const {Item} = require("../class/item.js");
 const {Food} = require("../class/food.js");
+const {Weapon} = require('../class/weapon.js');
 
 describe ('Item', function () {
 
@@ -146,5 +147,39 @@ describe ('Food', function () {
 
   });
 
+});
+
+describe('Weapon', function () {
+
+  let room;
+  let weapon;
+  let player;
+
+  beforeEach(function () {
+    room = new Room('Test Room', "A test room");
+    player = new Player('player', room);
+    weapon = new Weapon('excalibastard', 'For ypur death dealing needs');
+
+  });
+
+  describe('Constructor', function () {
+
+    it('should initialize the Weapon class', function () {
+      expect(weapon.constructor).to.exist;
+    });
+
+    it('Weapon should also be an instance of Item', function () {
+      expect(weapon).to.be.instanceOf(Weapon);
+      expect(weapon).to.be.instanceOf(Item);
+      expect(weapon).to.not.be.instanceOf(Food);
+    });
+
+    it('should initialize the name, description, and damageBoostPercentage', function () {
+      expect(weapon.name).to.equal('excalibastard');
+      expect(weapon.description).to.equal('For ypur death dealing needs');
+      expect(weapon.damageBoostPercentage).to.equal(0.15);
+    });
+
+  });
 
 });
