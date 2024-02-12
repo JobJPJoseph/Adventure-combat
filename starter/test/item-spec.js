@@ -262,9 +262,4 @@ describe('Weapon', function () {
 
   });
 
-  // describe('calculateStrengthBoost', function () {
-  //   expect(player.strength).to.equal(10);
-  //   expect(player.)
-  // });
-
 });

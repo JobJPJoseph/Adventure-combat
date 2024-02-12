@@ -33,7 +33,7 @@ class Player extends Character {
     }
   }
 
-  takeItem(itemName) { // fix this
+  takeItem(itemName) {
     // Fill this in
 
     const instItem = this.currentRoom.getItemByName(itemName);
@@ -50,7 +50,7 @@ class Player extends Character {
     return true;
   }
 
-  dropItem(itemName) { // fix this
+  dropItem(itemName) {
     // Fill this in
     const instItem = this.getItemByName(itemName);
 
@@ -65,7 +65,7 @@ class Player extends Character {
     return true;
   }
 
-  eatItem(itemName) { // fix this
+  eatItem(itemName) {
     // Fill this in
     const instItem = this.getItemByName(itemName);
     if (!(instItem instanceof Food)) return false;
@@ -98,10 +98,21 @@ class Player extends Character {
 
     But first we need to make changes to world-data by adding excalibastard
     */
-    // console.log(this.getItemByName(name)); This is wrong bc the weapon should already be in your inventory
+
+    const weapon = this.getItemByName(name);
+
+    if (weapon.equip()) {
+      console.log(weapon.equip());
+      this.strength -= weapon.additiveDmg;
+      weapon.equipWeapon();
+    } else {
+      console.log(weapon.equip());
+      this.strength += weapon.additiveDmg;
+      weapon.equipWeapon();
+    }
   }
 
-  getItemByName(name) { // We need to fix this
+  getItemByName(name) {
     // Fill this in
     // for (let i = 0; i < this.items.length; i++) {
     //   const item = this.items[i];
