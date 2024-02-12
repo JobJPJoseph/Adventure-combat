@@ -163,7 +163,6 @@ describe('Weapon', function () {
     room = new Room('Test Room', "A test room");
     player = new Player('player', room);
     weapon = new Weapon('excalibastard', 'For your death dealing needs');
-
   });
 
   describe('Constructor', function () {
@@ -180,9 +179,24 @@ describe('Weapon', function () {
 
     it('should initialize the name, description, additiveDmg, and equip', function () {
       expect(weapon.name).to.equal('excalibastard');
-      expect(weapon.description).to.equal('For ypur death dealing needs');
+      expect(weapon.description).to.equal('For your death dealing needs');
       expect(weapon.additiveDmg).to.equal(25);
       expect(weapon.isEquiped).to.deep.equal([false, true]);
+    });
+
+  });
+
+  describe('takeItem', function () {
+
+    it("should take the weapon from room's inventory and place it in the player's inventory.", function () {
+      room.items.push(weapon);
+      expect(room.items.length).to.equal(1);
+      expect(player.items.length).to.equal(0);
+
+      player.takeItem('excalibastard');
+
+      expect(room.items.length).to.equal(0);
+      expect(player.items.length).to.equal(1);
     });
 
   });
@@ -190,7 +204,8 @@ describe('Weapon', function () {
   describe('Equip', function () {
 
     it('should return the first index of isEquiped', function () {
-      expect(weapon.equip()).to.equal(false);
+      player.items.push(weapon);
+      expect(player.items[0].equip()).to.equal(false);
     });
 
   });
@@ -205,19 +220,44 @@ describe('Weapon', function () {
 
   });
 
-  describe('calculateStrength', function () {
+  // All we need to do is check if the player equiped the weapon or not
+  // There is a disconnect btw the test and running the game
 
-    it('should increase the player strength when weapon is equiped', function () {
-      expect(player.strength).to.equal(10);
-      player.calculateStrength();
-      expect(player.strength).to.equal(35);
+  describe('equipWeapon', function () {
+
+    context('When weapon is equiped', function () {
+
+      it('should have the player equip the weapon', function () {
+        player.items.push(weapon);
+        player.equipWeapon('excalibastard');
+        expect(player.items[0].equip()).to.equal(true);
+      });
+
+      it('when weapon is equiped, should increase the player.strength', function () {
+        player.items.push(weapon);
+        player.equipWeapon('excalibastard');
+        expect(player.strength).to.equal(35);
+      });
 
     });
 
-    it('should return the strength to it original state when the weapon is not equiped', function () {
-      expect(player.strength).to.equal(35);
-      player.calculateStrength();
-      expect(player.strength).to.equal(10);
+    context('When weapon is unequiped', function () {
+
+      it('should have the player unequip the weapon', function () {
+        weapon.equipWeapon();
+        player.items.push(weapon);
+        player.equipWeapon('excalibastard');
+        expect(player.items[0].equip()).to.equal(false);
+      });
+
+      it('when weapon unequiped, should return the player.strength to its original state', function () {
+        player.strength = 35;
+        weapon.equipWeapon();
+        player.items.push(weapon);
+        player.equipWeapon('excalibastard');
+        expect(player.strength).to.equal(10);
+      });
+
     });
 
   });

@@ -41,6 +41,7 @@ class Player extends Character {
     if (instItem) {
       const index = this.currentRoom.items.indexOf(instItem);
       const item = this.currentRoom.items.splice(index, 1);
+      console.log(...item);
       this.items.push(...item);
     } else {
       return false;
@@ -85,7 +86,7 @@ class Player extends Character {
     return true;
   }
 
-  calculateStrength(name) {
+  equipWeapon(name) {
     /*
     To get this working we need to call getItemByName(name)
     This will return an weapon instance.
@@ -97,9 +98,10 @@ class Player extends Character {
 
     But first we need to make changes to world-data by adding excalibastard
     */
+    // console.log(this.getItemByName(name)); This is wrong bc the weapon should already be in your inventory
   }
 
-  getItemByName(name) {
+  getItemByName(name) { // We need to fix this
     // Fill this in
     // for (let i = 0; i < this.items.length; i++) {
     //   const item = this.items[i];
