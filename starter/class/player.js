@@ -1,5 +1,4 @@
 const {Character} = require('./character');
-// const {Enemy} = require('./enemy');
 const {Food} = require('./food');
 
 class Player extends Character {
@@ -41,7 +40,6 @@ class Player extends Character {
     if (instItem) {
       const index = this.currentRoom.items.indexOf(instItem);
       const item = this.currentRoom.items.splice(index, 1);
-      console.log(...item);
       this.items.push(...item);
     } else {
       return false;
@@ -87,40 +85,20 @@ class Player extends Character {
   }
 
   equipWeapon(name) {
-    /*
-    To get this working we need to call getItemByName(name)
-    This will return an weapon instance.
-    From here we will refernce Weapon.equip()
-      if, true, we will decrement Player.strength by Weapon.additiveDmg
-      and call Weapon.equipWeapon()
-      if false, we will increment Player.strength by Weapon.additiveDmg
-      and call Weapon.equipWeapon()
-
-    But first we need to make changes to world-data by adding excalibastard
-    */
-
     const weapon = this.getItemByName(name);
+    console.log(weapon)
 
     if (weapon.equip()) {
-      console.log(weapon.equip());
       this.strength -= weapon.additiveDmg;
       weapon.equipWeapon();
     } else {
-      console.log(weapon.equip());
       this.strength += weapon.additiveDmg;
       weapon.equipWeapon();
     }
+
   }
 
   getItemByName(name) {
-    // Fill this in
-    // for (let i = 0; i < this.items.length; i++) {
-    //   const item = this.items[i];
-
-    //   if (item.name === name) return item;
-    // }
-
-    // return false;
     return super.getItemByName(name);
   }
 
@@ -139,7 +117,7 @@ class Player extends Character {
 
   }
 
-  die() { // needs to be called
+  die() {
     console.log("You are dead!");
     process.exit();
   }

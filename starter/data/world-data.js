@@ -47,6 +47,7 @@ module.exports = {
       name: "excalibastard",
       description: "For your death dealing needs",
       room: 4,
+      isWeapon: true
     }
   ],
   enemies: [

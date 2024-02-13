@@ -23,6 +23,7 @@ function printHelp() {
   console.log("  Type 'drop <item>' to drop an item");
   console.log("  Type 'eat <item>' to eat a food item");
   console.log("  Type 'hit <enemy>' to hit the enemy");
+  console.log("  Type 'equip <item>' to equip the weapon");
   console.log("  Type 'n', 's', 'e', 'w' to move");
   console.log("");
 }
@@ -104,6 +105,10 @@ function processCommand() {
         console.log("Invalid command. Type 'h' for help.");
       }
 
+    } else if(cmd.startsWith("equip ")) {
+      let weaponName = cmd.split(" ")[1];
+
+      player.equipWeapon(weaponName);
     } else {
       console.log("Invalid command. Type 'h' for help.");
     }

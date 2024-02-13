@@ -78,7 +78,6 @@ class Room {
 
     // Fill this in
 
-    // const enemies = this.getEnemies();
     const enemies = this.getEnemies.call(this.currentRoom); // We added context
 
     for (let i = 0; i < enemies.length; i++) {
@@ -89,6 +88,7 @@ class Room {
 
     return enemies;
   }
+
 }
 
 module.exports = {

@@ -2,6 +2,7 @@ const { Room } = require('./room');
 const { Item } = require('./item');
 const { Food } = require('./food');
 const { Enemy } = require('./enemy');
+const { Weapon } = require('./weapon');
 
 class World {
 
@@ -70,6 +71,8 @@ class World {
       // test if said item is a food or not
       if (itemData.isFood) {
         newItem = new Food(itemData.name, itemData.description);
+      } else if (itemData.isWeapon) {
+        newItem = new Weapon(itemData.name, itemData.description);
       } else {
         newItem = new Item(itemData.name, itemData.description);
       }
@@ -91,9 +94,6 @@ class World {
       World.enemies.push(newEnemy);
     }
 
-    // We will back to this later
-    // console.log(World.rooms);
-    // console.log(World.enemies);
   }
 
 }
