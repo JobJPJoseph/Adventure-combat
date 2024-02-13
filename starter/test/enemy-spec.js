@@ -10,6 +10,8 @@ const {World} = require("../class/world.js");
 const {Character} = require("../class/character.js");
 const {Enemy} = require("../class/enemy.js");
 
+const {Boss} = require('../class/boss.js');
+
 describe ('Character', function () {
 
   let character;
@@ -146,6 +148,37 @@ describe ('Enemy', function () {
     enemy.attack();
     expect(player.health).to.equal(90);
     expect(enemy.cooldown).above(0);
+
+  });
+
+});
+
+describe('Boss', function () {
+
+  it('should initilize the Boss class', function () {
+    expect(Boss).to.exist;
+  });
+
+  let boss;
+
+  this.beforeEach(function () {
+    boss = new Boss('badass goblin', 'goblin unchained');
+  });
+
+  describe('constructor', function () {
+
+    it('should extend from the Enemy class', function () {
+      expect(boss).to.be.instanceOf(Boss);
+      expect(boss).to.be.instanceOf(Enemy);
+    });
+
+    it('should initilize name, decription, instGoblin, dmgBuff, isBoss', function () {
+      expect(boss.name).to.equal('badass goblin');
+      expect(boss.description).to.equal('goblin unchained');
+      expect(boss.instGoblin).to.be.instanceOf(Enemy);
+      expect(boss.dmgBuff).to.equal(0.30);
+      expect(boss.isBoss).to.equal(true);
+    });
 
   });
 

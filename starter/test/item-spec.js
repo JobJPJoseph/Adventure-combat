@@ -220,9 +220,6 @@ describe('Weapon', function () {
 
   });
 
-  // All we need to do is check if the player equiped the weapon or not
-  // There is a disconnect btw the test and running the game
-
   describe('equipWeapon', function () {
 
     context('When weapon is equiped', function () {

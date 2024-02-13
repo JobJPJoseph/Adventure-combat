@@ -68,3 +68,5 @@ Type `npm install` to install the test packages, then `mocha` to run tests.
 
 9. Add more functionality to the food class.
    1. When a food is eaten it should increase the player's health.
+
+10. implement a Boss class that extends from the Enemey class

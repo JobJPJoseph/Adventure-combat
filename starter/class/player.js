@@ -86,7 +86,6 @@ class Player extends Character {
 
   equipWeapon(name) {
     const weapon = this.getItemByName(name);
-    console.log(weapon)
 
     if (weapon.equip()) {
       this.strength -= weapon.additiveDmg;
