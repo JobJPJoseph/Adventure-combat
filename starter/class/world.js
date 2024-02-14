@@ -3,6 +3,7 @@ const { Item } = require('./item');
 const { Food } = require('./food');
 const { Enemy } = require('./enemy');
 const { Weapon } = require('./weapon');
+const { Boss } = require('./boss');
 
 class World {
 
@@ -88,10 +89,17 @@ class World {
     // Instantiate enemies
     for (let i = 0 ; i < enemyList.length ; i++) {
       let enemyData = enemyList[i];
-
       let enemyRoom = World.rooms[enemyData.room];
-      let newEnemy = new Enemy(enemyData.name, enemyData.description, enemyRoom);
-      World.enemies.push(newEnemy);
+      let newEnemy;
+
+      if(enemyData.isBoss) {
+        newEnemy = new Boss(enemyData.name, enemyData.description, enemyRoom);
+        World.enemies.push(newEnemy);
+      } else {
+        newEnemy = new Enemy(enemyData.name, enemyData.description, enemyRoom);
+        World.enemies.push(newEnemy);
+      }
+
     }
 
   }

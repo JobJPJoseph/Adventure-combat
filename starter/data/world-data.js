@@ -56,11 +56,11 @@ module.exports = {
       description: "A mean-looking goblin",
       room: 3
     },
-    // {
-    //   name: "badass goblin",
-    //   description: "unchained",
-    //   room: 5,
-    //   isBoss: true
-    // }
+    {
+      name: "badass goblin",
+      description: "unchained",
+      room: 5,
+      isBoss: true
+    }
   ]
 }
