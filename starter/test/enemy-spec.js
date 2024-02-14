@@ -162,13 +162,13 @@ describe('Boss', function () {
   let boss;
   let name;
   let description;
-  let goblin;
+  let currentRoom;
 
   this.beforeEach(function () {
     name = 'badass goblin';
     description = 'goblin unchained';
-    goblin = new Enemy('goblin', 'normal enemy')
-    boss = new Boss(name, description, goblin);
+    currentRoom = new Room("Test Room", "A test room")
+    boss = new Boss(name, description, currentRoom);
   });
 
   describe('constructor', function () {
@@ -178,19 +178,20 @@ describe('Boss', function () {
       expect(boss).to.be.instanceOf(Enemy);
     });
 
-    context('should accept 3 arguments: name, description, instGoblin', function () {
+    context('should accept 3 arguments: name, description, currentRoom', function () {
 
       it("should initilize name: 'goblin', description: 'goblin unchained', isBoss: true", function () {
         expect(boss.name).to.equal('badass goblin');
         expect(boss.description).to.equal('goblin unchained');
-        expect(boss.isBoss).to.equal(true);
+        expect(boss.currentRoom.name).to.equal('Test Room');
+        expect(boss.currentRoom).to.be.instanceOf(Room);
       });
 
-      it('should override strength: should be instGoblin.strength and boost it by 1.30 or 130%', function () {
+      it('should override strength: should set to 23', function () {
         expect(boss.strength).to.equal(23);
       });
 
-      it('should override health: should be instGoblin.health and boost it by 1.15 or 115%', function () {
+      it('should override health: should be set to 215', function () {
         expect(boss.health).to.equal(215);
       });
 

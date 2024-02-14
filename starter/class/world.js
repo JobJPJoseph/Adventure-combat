@@ -87,8 +87,8 @@ class World {
 
     // Instantiate enemies
     for (let i = 0 ; i < enemyList.length ; i++) {
-
       let enemyData = enemyList[i];
+
       let enemyRoom = World.rooms[enemyData.room];
       let newEnemy = new Enemy(enemyData.name, enemyData.description, enemyRoom);
       World.enemies.push(newEnemy);

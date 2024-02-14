@@ -70,3 +70,10 @@ Type `npm install` to install the test packages, then `mocha` to run tests.
    1. When a food is eaten it should increase the player's health.
 
 10. implement a Boss class that extends from the Enemey class
+   1. Make sure the Boss has a room to associtiate to.
+
+11. Add the Boss enemy to world-data
+
+12. Add a if statement where we instantiate enemies.
+   1. It will test if the enemy is a boss or not.
+   2. The Boss is technically an enemy so make sure it in the World.enemies array
