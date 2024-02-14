@@ -57,7 +57,7 @@ module.exports = {
       room: 3
     },
     {
-      name: "badass goblin",
+      name: "orge",
       description: "unchained",
       room: 5,
       isBoss: true

@@ -63,7 +63,6 @@ class Room {
   }
 
   getItemByName(name) {
-
     // Fill this in
     for (let i = 0; i < this.items.length; i++) {
       const item = this.items[i];
@@ -75,7 +74,6 @@ class Room {
   }
 
   getEnemyByName(name) {
-
     // Fill this in
 
     const enemies = this.getEnemies.call(this.currentRoom); // We added context
